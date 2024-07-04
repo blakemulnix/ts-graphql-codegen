@@ -2,7 +2,7 @@ import { ApolloClient, gql } from "@apollo/client/core";
 import { HttpLink } from "@apollo/client/link/http";
 import { InMemoryCache } from "@apollo/client/cache";
 import { prettyPrint } from "./utils.js";
-import { GetBikeByIdQuery, GetBikeByIdQueryVariables, GetBikesQuery, GetBikesQueryVariables } from "./__generated__/graphql.js";
+import { GetBikeByIdQuery, GetBikeByIdQueryVariables, GetBikesQuery } from "./__generated__/graphql.js";
 
 const client = new ApolloClient({
   link: new HttpLink({ uri: "http://localhost:4000/graphql", fetch }),
@@ -21,7 +21,6 @@ const GET_BIKES = gql(`
     }
 }`);
 
-// TODO add variables
 const { data } = await client.query<GetBikesQuery>({
   query: GET_BIKES,
 });
