@@ -10,8 +10,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@apollo/client": "^3.10.5",
-    "cross-fetch": "^4.0.0",
-    "graphql": "^16.8.2"
+    "@apollo/client": "^3.10.5"
   }
 }
