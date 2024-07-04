@@ -18,29 +18,29 @@ const documents = {
 };
 
 /**
- * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  *
  *
  * @example
  * ```ts
- * const query = gql(`query GetUser($id: ID!) { user(id: $id) { name } }`);
+ * const query = graphql(`query GetUser($id: ID!) { user(id: $id) { name } }`);
  * ```
  *
  * The query argument is unknown!
  * Please regenerate the types.
  */
-export function gql(source: string): unknown;
+export function graphql(source: string): unknown;
 
 /**
- * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n  query GetBikes {\n    bikes {\n      brand\n      model\n      rides {\n        name\n        distance\n      }\n    }\n}"): (typeof documents)["\n  query GetBikes {\n    bikes {\n      brand\n      model\n      rides {\n        name\n        distance\n      }\n    }\n}"];
+export function graphql(source: "\n  query GetBikes {\n    bikes {\n      brand\n      model\n      rides {\n        name\n        distance\n      }\n    }\n}"): (typeof documents)["\n  query GetBikes {\n    bikes {\n      brand\n      model\n      rides {\n        name\n        distance\n      }\n    }\n}"];
 /**
- * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n  query GetBikeById($id: Int!) {\n    bike(id: $id) {\n      brand\n      model\n      rides {\n        name\n        distance\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetBikeById($id: Int!) {\n    bike(id: $id) {\n      brand\n      model\n      rides {\n        name\n        distance\n      }\n    }\n  }\n"];
+export function graphql(source: "\n  query GetBikeById($id: Int!) {\n    bike(id: $id) {\n      brand\n      model\n      rides {\n        name\n        distance\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetBikeById($id: Int!) {\n    bike(id: $id) {\n      brand\n      model\n      rides {\n        name\n        distance\n      }\n    }\n  }\n"];
 
-export function gql(source: string) {
+export function graphql(source: string) {
   return (documents as any)[source] ?? {};
 }
 
