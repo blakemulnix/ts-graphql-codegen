@@ -1,0 +1,43 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  bikes: [Bike!]!
+  bike(id: Int!): Bike
+  rides: [Ride!]!
+  ride(id: Int!): Ride
+}
+
+type Mutation {
+  addBike(input: AddBikeInput!): Bike!
+  addRide(input: AddRideInput!): Ride!
+}
+
+type Bike {
+  id: Int!
+  brand: String!
+  model: String!
+  rides: [Ride!]!
+}
+
+type Ride {
+  id: Int!
+  bikeId: Int!
+  name: String!
+  distance: Float!
+  location: String!
+}
+
+input AddBikeInput {
+  brand: String!
+  model: String!
+}
+
+input AddRideInput {
+  bikeId: Int!
+  name: String!
+  distance: Float!
+  location: String!
+}

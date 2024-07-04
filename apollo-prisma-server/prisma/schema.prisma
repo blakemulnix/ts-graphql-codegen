@@ -1,0 +1,24 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Bike {
+  id    Int    @id @default(autoincrement())
+  brand String
+  model String
+  rides  Ride[]
+}
+
+model Ride {
+  id       Int    @id @default(autoincrement())
+  bikeId   Int
+  name     String
+  distance Float
+  location String
+  bike     Bike   @relation(fields: [bikeId], references: [id])
+}

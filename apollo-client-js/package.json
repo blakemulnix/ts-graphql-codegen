@@ -1,0 +1,17 @@
+{
+  "name": "apollo",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@apollo/client": "^3.10.5",
+    "cross-fetch": "^4.0.0",
+    "graphql": "^16.8.2"
+  }
+}
