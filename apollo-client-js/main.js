@@ -17,7 +17,6 @@ const GET_BIKES = gql(`
   }
 `);
 
-
 const response = await client.query({ query: GET_BIKES });
 
 prettyPrint(response.data.bikes);
