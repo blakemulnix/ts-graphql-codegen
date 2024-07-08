@@ -1,7 +1,7 @@
 import { CodegenConfig } from "@graphql-codegen/cli";
 
 const config: CodegenConfig = {
-  schema: "../apollo-prisma-server/src/schema.graphql",
+  schema: "http:localhost:4000/graphql",
   documents: ["./**/*.ts"],
   generates: {
     "./__generated__/": {
