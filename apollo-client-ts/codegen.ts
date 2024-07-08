@@ -1,13 +1,11 @@
 import { CodegenConfig } from "@graphql-codegen/cli";
 
 const config: CodegenConfig = {
-  schema: "http:localhost:4000/graphql",
-  documents: ["./**/*.ts"],
+  schema: "http://localhost:4000/graphql",
   generates: {
-    "./__generated__/": {
-      preset: "client",
-    },
+    'types/graphql.ts': { plugins: ['typescript', 'typescript-operations'] },
   },
+  documents: ["./**/*.ts"]
 };
 
 export default config;
