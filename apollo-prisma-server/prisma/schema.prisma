@@ -17,7 +17,7 @@ model Bike {
 model Ride {
   id       Int    @id @default(autoincrement())
   bikeId   Int
-  name     String
+  name     String?
   distance Float
   location String
   bike     Bike   @relation(fields: [bikeId], references: [id])

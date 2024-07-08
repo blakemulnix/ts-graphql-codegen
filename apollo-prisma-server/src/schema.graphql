@@ -1,38 +1,80 @@
+"""Root query type for all the queries that can be performed"""
 type Query {
+  """Retrieves a list of all bikes"""
   bikes: [Bike!]!
+  
+  """Retrieves a specific bike by its ID"""
   bike(id: Int!): Bike
+  
+  """Retrieves a list of all rides"""
   rides: [Ride!]!
+  
+  """Retrieves a specific ride by its ID"""
   ride(id: Int!): Ride
 }
 
+"""Root mutation type for all the mutations that can be performed"""
 type Mutation {
+  """Adds a new bike using the provided input data"""
   addBike(input: AddBikeInput!): Bike!
+  
+  """Adds a new ride using the provided input data"""
   addRide(input: AddRideInput!): Ride!
 }
 
+"""Represents a bike with its details"""
 type Bike {
+  """Unique identifier for the bike"""
   id: Int!
+  
+  """Brand of the bike"""
   brand: String!
+  
+  """Model of the bike"""
   model: String!
+  
+  """List of rides associated with the bike"""
   rides: [Ride!]!
 }
 
+"""Represents a ride with its details"""
 type Ride {
+  """Unique identifier for the ride"""
   id: Int!
+  
+  """Identifier for the bike associated with the ride"""
   bikeId: Int!
-  name: String!
+  
+  """Name of the ride"""
+  name: String
+  
+  """Distance covered in the ride"""
   distance: Float!
+  
+  """Location where the ride took place"""
   location: String!
 }
 
+"""Input type for adding a new bike"""
 input AddBikeInput {
+  """Brand of the bike"""
   brand: String!
+  
+  """Model of the bike"""
   model: String!
 }
 
+"""Input type for adding a new ride"""
 input AddRideInput {
+  """Identifier for the bike associated with the ride"""
   bikeId: Int!
-  name: String!
+  
+  """Name of the ride"""
+  name: String
+  
+  """Distance covered in the ride"""
   distance: Float!
+  
+  """Location where the ride took place"""
   location: String!
 }

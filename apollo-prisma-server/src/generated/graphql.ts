@@ -16,67 +16,98 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
+/** Input type for adding a new bike */
 export type AddBikeInput = {
+  /** Brand of the bike */
   brand: Scalars['String']['input'];
+  /** Model of the bike */
   model: Scalars['String']['input'];
 };
 
+/** Input type for adding a new ride */
 export type AddRideInput = {
+  /** Identifier for the bike associated with the ride */
   bikeId: Scalars['Int']['input'];
+  /** Distance covered in the ride */
   distance: Scalars['Float']['input'];
+  /** Location where the ride took place */
   location: Scalars['String']['input'];
-  name: Scalars['String']['input'];
+  /** Name of the ride */
+  name?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** Represents a bike with its details */
 export type Bike = {
   __typename?: 'Bike';
+  /** Brand of the bike */
   brand: Scalars['String']['output'];
+  /** Unique identifier for the bike */
   id: Scalars['Int']['output'];
+  /** Model of the bike */
   model: Scalars['String']['output'];
+  /** List of rides associated with the bike */
   rides: Array<Ride>;
 };
 
+/** Root mutation type for all the mutations that can be performed */
 export type Mutation = {
   __typename?: 'Mutation';
+  /** Adds a new bike using the provided input data */
   addBike: Bike;
+  /** Adds a new ride using the provided input data */
   addRide: Ride;
 };
 
 
+/** Root mutation type for all the mutations that can be performed */
 export type MutationAddBikeArgs = {
   input: AddBikeInput;
 };
 
 
+/** Root mutation type for all the mutations that can be performed */
 export type MutationAddRideArgs = {
   input: AddRideInput;
 };
 
+/** Root query type for all the queries that can be performed */
 export type Query = {
   __typename?: 'Query';
+  /** Retrieves a specific bike by its ID */
   bike?: Maybe<Bike>;
+  /** Retrieves a list of all bikes */
   bikes: Array<Bike>;
+  /** Retrieves a specific ride by its ID */
   ride?: Maybe<Ride>;
+  /** Retrieves a list of all rides */
   rides: Array<Ride>;
 };
 
 
+/** Root query type for all the queries that can be performed */
 export type QueryBikeArgs = {
   id: Scalars['Int']['input'];
 };
 
 
+/** Root query type for all the queries that can be performed */
 export type QueryRideArgs = {
   id: Scalars['Int']['input'];
 };
 
+/** Represents a ride with its details */
 export type Ride = {
   __typename?: 'Ride';
+  /** Identifier for the bike associated with the ride */
   bikeId: Scalars['Int']['output'];
+  /** Distance covered in the ride */
   distance: Scalars['Float']['output'];
+  /** Unique identifier for the ride */
   id: Scalars['Int']['output'];
+  /** Location where the ride took place */
   location: Scalars['String']['output'];
-  name: Scalars['String']['output'];
+  /** Name of the ride */
+  name?: Maybe<Scalars['String']['output']>;
 };
 
 
@@ -201,7 +232,7 @@ export type RideResolvers<ContextType = any, ParentType extends ResolversParentT
   distance?: Resolver<ResolversTypes['Float'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   location?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
